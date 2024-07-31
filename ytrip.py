@@ -40,7 +40,7 @@ if __name__ == '__main__':  # Start, create variables from arguments and run mai
         quit()
     bitrate = str(args.bitrate)
     if args.output == None:
-        print("No output directory specified. Run 'python3 ytrip.py -h' for help")
+        print("No output specified. Run 'python3 ytrip.py -h' for help")
         quit()
     elif args.output.endswith('.mp3'):
         output = args.output.strip(".mp3")
