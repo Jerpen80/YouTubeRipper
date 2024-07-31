@@ -1,3 +1,5 @@
+#!/bin/python3
+
 ## Requirements: Install ffmpeg package (sudo apt install ffmpeg) and install yt-dlp pip package (pip install yt_dlp) 
 
 import yt_dlp, argparse, textwrap
@@ -22,8 +24,12 @@ def main(yt_url, bitrate, output):
 
 if __name__ == '__main__':  # Start, create variables from arguments and run main
 
-    parser = argparse.ArgumentParser(description="How to use Jeroen's Youtube ripper",formatter_class=argparse.RawDescriptionHelpFormatter,epilog=textwrap.dedent('''Example:
-    python3 ytrip.py -u https://www.youtube.com/watch?v=8OAPLk20epo -b 128 -o ~/Music/   # Rip audio from specified URL and write mp3 file to ~/Music/ in 128 kbps bitrate'''))
+    parser = argparse.ArgumentParser(description="How to use Jeroen's Youtube ripper",formatter_class=argparse.RawDescriptionHelpFormatter,epilog=textwrap.dedent('''Examples:\n
+    ## Rip audio from specified URL and write mp3 file generated from video title to ~/Music/ in 128 kbps bitrate:\n
+    python3 ytrip.py -u https://www.youtube.com/watch?v=8OAPLk20epo -b 128 -o ~/Music/ \n
+    ## Rip audio from specified URL and write to ~/Music/Beethoven - 9th symphony.mp3 in 192 kbps bitrate:\n
+    python3 ytrip.py -u https://www.youtube.com/watch?v=8OAPLk20epo -o '~/Music/Beethoven - 9th symphony.mp3' 
+    '''))
     parser.add_argument('-b', '--bitrate', type=int, default=192, help='bitrate of generated mp3 file (default = 192)')
     parser.add_argument('-u', '--url', help='Youtube URL')
     parser.add_argument('-o', '--output', help='Specify filename or generate filename by only specifying directory')
@@ -34,7 +40,7 @@ if __name__ == '__main__':  # Start, create variables from arguments and run mai
         quit()
     bitrate = str(args.bitrate)
     if args.output == None:
-        print("No output directory specified. Run 'python3 ytrip.py -h' for help")
+        print("No output specified. Run 'python3 ytrip.py -h' for help")
         quit()
     elif args.output.endswith('.mp3'):
         output = args.output.strip(".mp3")
