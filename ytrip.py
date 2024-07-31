@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 
 ## Requirements: Install ffmpeg package (sudo apt install ffmpeg) and install yt-dlp pip package (pip install yt_dlp) 
 
